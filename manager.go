@@ -1,15 +1,16 @@
 package cartsess
 
 import (
-	"github.com/gimke/cart"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/gimke/cart"
 )
 
 var firstKey string = ""
 
-const Version = "v1.0.3"
+const Version = "v1.0.6"
 
 const (
 	prefixKey   = "github.com/gimke/cartsess:"
