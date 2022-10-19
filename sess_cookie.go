@@ -66,6 +66,7 @@ func (s *CookieStore) Destroy(r *http.Request, w http.ResponseWriter, session *S
 		Domain:   session.Options.Domain,
 		Secure:   session.Options.Secure,
 		HttpOnly: session.Options.HttpOnly,
+		SameSite: session.Options.SameSite,
 		MaxAge:   -1,
 	}
 	http.SetCookie(w, NewCookie(session.CookieName(), "", opt))

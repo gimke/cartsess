@@ -4,10 +4,11 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/go-redis/redis"
 	"math/rand"
 	"net/http"
 	"time"
+
+	"github.com/go-redis/redis"
 )
 
 type RedisStore struct {
@@ -139,6 +140,7 @@ func (s *RedisStore) Destroy(r *http.Request, w http.ResponseWriter, session *Se
 		Domain:   session.Options.Domain,
 		Secure:   session.Options.Secure,
 		HttpOnly: session.Options.HttpOnly,
+		SameSite: session.Options.SameSite,
 		MaxAge:   -1,
 	}
 	http.SetCookie(w, NewCookie(session.CookieName(), "", opt))
